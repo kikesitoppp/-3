@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti 💖</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            margin: 0;
+        }
+        .mensaje {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #d63384;
+            font-weight: bold;
+            z-index: 2;
+        }
+        .flores {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .flor {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, yellow, orange);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            animation: crecer 5s ease-in-out forwards;
+            box-shadow: 0 0 10px 5px yellow;
+        }
+        @keyframes crecer {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+        .corazon {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://i.imgur.com/JJzZVqE.png') no-repeat center/contain;
+            animation: flotar 3s infinite ease-in-out;
+        }
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="mensaje">Eres lo mejor que me ha pasado 💖</div>
+    <div class="flores">
+        <div class="flor" style="left: -100px;"></div>
+        <div class="flor" style="left: 0px;"></div>
+        <div class="flor" style="left: 100px;"></div>
+    </div>
+    <script>
+        function agregarCorazones() {
+            for (let i = 0; i < 10; i++) {
+                let corazon = document.createElement("div");
+                corazon.className = "corazon";
+                corazon.style.left = Math.random() * window.innerWidth + "px";
+                corazon.style.top = Math.random() * window.innerHeight + "px";
+                document.body.appendChild(corazon);
+            }
+        }
+        agregarCorazones();
+    </script>
+</body>
+</html>
